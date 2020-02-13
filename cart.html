@@ -1,0 +1,394 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="./image/ix.ico">
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!-- nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav nav-pills nav-fill w-100">
+                    <li class="nav-item">
+                        <a class="nav-link p-1 pointer" href="#" onclick="window.location.href='home.html';"><img
+                                src="./image/logo.svg" width="30px" height="30px"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="window.location.href='catagory - Art.html';">Art</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="window.location.href='catagory - Motion.html';">Motion graphic</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="window.location.href='catagory - Design.html';">Design</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="window.location.href='catagory - 3D.html';">3D Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="window.location.href='catagory - Photo.html';">Photography</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="window.location.href='contact.html';">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="window.location.href='cart.html';"><img
+                                src="./image/cart.svg" width="25px" height="25px"></a>
+                    </li>
+                    <li class="nav-item align-self-center" id="user-display">
+                        <script>
+                            function checkLogin() {
+                                var username = localStorage.getItem('xi_username')
+                                if (username == null) {
+                                    document.getElementById('user-display').innerHTML = '<a class="nav-link" href="#login" data-toggle="modal"><img src="./image/user.svg" width="25px" height="25px"></a>'
+                                } else {
+                                    document.getElementById('user-display').innerHTML = '<div class="dropdown">' +
+                                        '<a class="dropdown-toggle pointer text-white" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
+                                        '<p class="mb-0 pr-2 d-inline-block text-limit-100px">' + username + '</p></a>' +
+                                        '<div class="dropdown-menu dropdown-menu-right mt-2" aria-labelledby="dropdownMenuLink">' +
+                                        '<a class="dropdown-item pointer" onClick="handleLogout();"><i class="fa fa-sign-out mr-2 pr-1"></i>ออกจากระบบ</a>' +
+                                        '</div></div>'
+                                }
+                            }
+                            checkLogin()
+                        </script>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container my-5">
+        <h3 class="mb-4"><b>Shopping Cart</b></h3>
+        <div class="row">
+            <div class="col-8">
+                <table class="table">
+                    <thead class="bg-table">
+                        <tr>
+                            <th scope="col" class="text-center">Name</th>
+                            <th scope="col" class="text-center">Price</th>
+                            <th scope="col" class="text-center">Quantity</th>
+                            <th scope="col" class="text-center">Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart">
+                        <!-- <tr>
+                            <td><img src="./image/sweet.jpg" height="100px" class="mr-3">Icecream</td>
+                            <td class="align-middle text-center">฿20</td>
+                            <td class="align-middle text-center">2</td>
+                            <td class="align-middle text-center">฿40</td>
+                            <td class="align-middle text-center">
+                                <span class="px-1 bg-table">
+                                    <i class='fa fa-times text-muted'></i>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="./image/sweet.jpg" height="100px" class="mr-3">Icecream</td>
+                            <td class="align-middle text-center">฿20</td>
+                            <td class="align-middle text-center">1</td>
+                            <td class="align-middle text-center">฿20</td>
+                            <td class="align-middle text-center">
+                                <span class="px-1 bg-table">
+                                    <i class='fa fa-times text-muted'></i>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="./image/sweet.jpg" height="100px" class="mr-3">Icecream</td>
+                            <td class="align-middle text-center">฿20</td>
+                            <td class="align-middle text-center">1</td>
+                            <td class="align-middle text-center">฿20</td>
+                            <td class="align-middle text-center">
+                                <span class="px-1 bg-table">
+                                    <i class='fa fa-times text-muted'></i>
+                                </span>
+                            </td>
+                        </tr> -->
+                        <tr>
+                            <td colspan="5" class="text-center">ไม่มีสินค้าในตะกร้า</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                <div class="bg-table px-3 py-3">
+                    <h4 class="mb-4">Cart total</h4>
+                    <div class="row">
+                        <p class="col-6 text-muted">
+                            Subtotal :
+                        </p>
+                        <p class="col-6 text-right" id="subtotal">
+                            
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p class="col-6 text-muted">
+                            Discount :
+                        </p>
+                        <p class="col-6 text-right">
+                            ฿0
+                        </p>
+                    </div>
+                    <div class="row mb-4">
+                        <p class="col-6 text-muted">
+                            Total :
+                        </p>
+                        <p class="col-6 text-right" id="total">
+                     
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-info btn-block"
+                        onclick="handleSubmit();">Proceed to checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <div class="container-fluid bg-dark" id="footer">
+        <div class="text-center py-4 text-white">
+            <h3><b>Contact us</b></h3>
+            <div class="mb-2">
+                <img src="./image/facebook.svg" alt="facebook" class="rounded-circle mx-1 pointer"
+                    onclick="window.location.href='https://www.facebook.com/';" width="35px" height="35px">
+                <img src="./image/line.svg" alt="line" class="rounded-circle mx-1 pointer"
+                    onclick="window.location.href='https://line.me/th/';" width="35px" height="35px">
+                <img src="./image/instagram.svg" alt="instagram" class="rounded-circle mx-1 pointer"
+                    onclick="window.location.href='https://www.instagram.com/';" width="35px" height="35px">
+            </div>
+            <p class="mb-0 text-gray">Phone: +66 2470 8000 Email: info@kmutt.ac.th</p>
+            <p class="mb-0 text-gray">King Mongkut’s University of Technology Thonburi (KMUTT)</p>
+            <p class="mb-0 text-gray">126 Pracha Uthit Rd., Bang Mod, Thung Khru, Bangkok 10140, Thailand</p>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content rounded-0">
+                <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-login nav-link rounded-0 text-green" id="btn-register" data-toggle="pill"
+                            href="#tab-register" role="tab" aria-controls="tab-register" aria-selected="true">
+                            <h5>Register</h5>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-login nav-link active rounded-0 text-green" id="btn-login" data-toggle="pill"
+                            href="#tab-login" role="tab" aria-controls="tab-login" aria-selected="false">
+                            <h5>Login</h5>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade" id="tab-register" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="modal-body px-4">
+                            <h3 class="text-center text-muted mb-4">Create Account</h3>
+                            <div class="input-group mb-3 px-3">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text rounded-0 border-top-0 border-left-0 border-right-0 bg-white"
+                                        id="basic-addon1"><i class="fa fa-envelope-o"></i></span>
+                                </div>
+                                <input type="text"
+                                    class="form-control rounded-0 border-top-0 border-left-0 border-right-0"
+                                    placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3 px-3">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text rounded-0 border-top-0 border-left-0 border-right-0 bg-white"
+                                        id="basic-addon1"><i class="fa fa-key"></i></span>
+                                </div>
+                                <input type="password"
+                                    class="form-control rounded-0 border-top-0 border-left-0 border-right-0"
+                                    placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3 px-3">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text rounded-0 border-top-0 border-left-0 border-right-0 bg-white"
+                                        id="basic-addon1"><i class="fa fa-lock"></i></span>
+                                </div>
+                                <input type="password"
+                                    class="form-control rounded-0 border-top-0 border-left-0 border-right-0"
+                                    placeholder="Confirm password" aria-label="Confirm password"
+                                    aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-4 px-3">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text rounded-0 border-top-0 border-left-0 border-right-0 bg-white"
+                                        id="basic-addon1"><i class="fa fa-user"></i></span>
+                                </div>
+                                <input type="text"
+                                    class="form-control rounded-0 border-top-0 border-left-0 border-right-0"
+                                    placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+
+
+                            <div class="form-group px-3">
+                                <button type="submit" class="btn btn-info btn-block ">Register</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane show active fade" id="tab-login" role="tabpanel"
+                        aria-labelledby="pills-profile-tab">
+                        <form class="modal-body px-4" id="login-form">
+                            <h3 class="text-center text-muted mb-4">Welcome to IX</h3>
+                            <div class="input-group mb-3 px-3">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text rounded-0 border-top-0 border-left-0 border-right-0 bg-white"
+                                        id="basic-addon1"><i class="fa fa-envelope-o"></i></span>
+                                </div>
+                                <input type="text" id="login-email" required
+                                    class="form-control rounded-0 border-top-0 border-left-0 border-right-0"
+                                    placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3 px-3">
+                                <div class="input-group-prepend">
+                                    <span
+                                        class="input-group-text rounded-0 border-top-0 border-left-0 border-right-0 bg-white"
+                                        id="basic-addon1"><i class="fa fa-key"></i></span>
+                                </div>
+                                <input type="password" id="login-password" required
+                                    class="form-control rounded-0 border-top-0 border-left-0 border-right-0"
+                                    placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="mb-4 px-3">
+                                <div class="form-group form-check text-muted">
+                                    <input type="checkbox" class="form-check-input" id="remember">
+                                    <label class="form-check-label" for="remember">Remember me</label>
+                                </div>
+                            </div>
+                            <div class="form-group px-3">
+                                <button type="button" class="btn btn-info btn-block"
+                                    onclick="handleLogin();">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/data.js"></script>
+    <script src="./js/alert.js"></script>
+    <script src="./js/validation.js"></script>
+    <script>
+        function handleLogin() {
+            var valid = Valid.form('login-form')
+            if (valid) {
+                localStorage.setItem('xi_username', document.getElementById('login-email').value)
+                checkLogin()
+                document.getElementById('login').classList.remove('show')
+                document.body.removeAttribute("style")
+                document.body.classList.remove('modal-open')
+                document.getElementsByClassName('modal-backdrop')[0].remove()
+            }
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('xi_username')
+            checkLogin()
+        }
+        //ดึงสินค้าจากหน้าproduct 
+        let cart = localStorage.getItem('cart')
+        //เช็คสินค้าในตระกร้า
+        if(cart != null){
+            cart = JSON.parse(cart)
+            var tbody = document.getElementById("cart")
+            tbody.innerHTML = ""
+            var i = 1
+            var subtotal = 0
+            cart.map((item)=>{
+                //ดึงdata
+                var index = data.findIndex( x => x.id == item.id)
+                //แสดงสินค้าในตะกร้า
+                tbody.innerHTML += "<tr id='"+item.id+"'>"+
+                "<td><img src=\"./image/"+data[index].thumbnail+"\" height='100px' class='mr-3'>"+data[index].name+"</td>"+
+                "<td class='align-middle text-center'>฿"+data[index].price.toLocaleString('en-US', {currency: 'USD'})+"</td>"+
+                "<td class='align-middle text-center'>"+item.value+"</td>"+
+                "<td class='align-middle text-center'>฿"+(data[index].price * item.value).toLocaleString('en-US', {currency: 'USD'})+"</td>"+
+                "<td class='align-middle text-center'><span class='px-1 bg-table'><i class='fa fa-times text-muted' data-id='"+item.id+"' onclick='handleRemove(this)'></i></span></td>"
+                "</tr>"
+                subtotal += (data[index].price * item.value)
+                i++
+            })
+            document.getElementById("subtotal").innerHTML = "฿"+subtotal.toLocaleString('en-US', {currency: 'USD'});
+            document.getElementById("total").innerHTML = "฿"+subtotal.toLocaleString('en-US', {currency: 'USD'});
+        } else {
+            document.getElementById("subtotal").innerHTML = "฿0";
+            document.getElementById("total").innerHTML = "฿0";
+        }
+        //เพราะส่งค่า this มา จึงต้องใส่ e (element)
+        function handleRemove(e){
+            //ลบสินค้าในตะกร้า
+            let cart = localStorage.getItem('cart')
+            cart = JSON.parse(cart)
+            var idx = cart.findIndex( x => x.id == e.dataset.id)
+            cart.splice(idx,1)
+            var subtotal = 0
+            cart.map((item)=>{
+                var index = data.findIndex( x => x.id == item.id)
+                subtotal += (data[index].price * item.value)
+            })
+            document.getElementById("subtotal").innerHTML = "฿"+subtotal.toLocaleString('en-US', {currency: 'USD'});
+            document.getElementById("total").innerHTML = "฿"+subtotal.toLocaleString('en-US', {currency: 'USD'});
+            if(cart.length > 0){
+                localStorage.setItem("cart", JSON.stringify(cart))
+            } else {
+                localStorage.removeItem('cart')
+            }
+            document.getElementById(e.dataset.id).remove()
+        }
+
+        function handleSubmit(){
+            var cart = localStorage.getItem('cart')
+            if(cart == null){
+                Alert.showMsg('ไม่สามารถสั่งซื้อได้ เนืองจากไม่มีรายการสินค้า !', 'danger', 1500)
+                return false
+            }
+
+            var username = localStorage.getItem('xi_username')
+            if(username == null){
+                Alert.showMsg('กรุณาเข้าสู่ระบบก่อนทำรายการต่อไป !', 'danger', 1500)
+            } else {
+                Alert.confirmDialog('ยืนยันการสั่งซื้อ', 'คุณต้องการยืนยันการสั่งซื้อหรือไม่ ?', ()=>{
+                    localStorage.removeItem('cart')
+                    window.open('success.html','_self')
+                }) 
+            }                   
+        }
+        
+    </script>
+
+</body>
+
+</html>
